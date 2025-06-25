@@ -1,0 +1,43 @@
+identity:
+  name: upload_permanent_media
+  author: xc
+  label:
+    en_US: Upload Permanent Image
+    zh_Hans: 上传永久图片
+    pt_BR: Upload Permanent Image
+description:
+  human:
+    en_US: Upload an image (BMP, PNG, JPEG, JPG, GIF; <=10MB) from a URL as permanent material to WeChat using access token. Returns media_id and URL.
+    zh_Hans: 使用访问令牌将指定URL的图片（支持BMP、PNG、JPEG、JPG、GIF格式，小于等于10MB）作为永久图片素材上传到微信。返回media_id和图片URL。
+    pt_BR: Upload an image (BMP, PNG, JPEG, JPG, GIF; <=10MB) from a URL as permanent material to WeChat using access token. Returns media_id and URL.
+  llm: Uploads an image (BMP, PNG, JPEG, JPG, GIF; <=10MB) from a URL to WeChat as permanent image material (type=image). Requires access token and image URL. Returns media_id and the image's URL on WeChat servers.
+parameters:
+  - name: access_token
+    type: string
+    required: true
+    label:
+      en_US: Access Token
+      zh_Hans: 访问令牌
+      pt_BR: Access Token
+    human_description:
+      en_US: WeChat access token obtained from get_access_token tool.
+      zh_Hans: 从get_access_token工具获取的微信访问令牌。
+      pt_BR: WeChat access token obtained from get_access_token tool.
+    llm_description: WeChat access token for API authentication.
+    form: llm
+  - name: image_url
+    type: string
+    required: true
+    label:
+      en_US: Image URL (BMP, PNG, JPEG, JPG, GIF; <=10MB)
+      zh_Hans: 图片URL (BMP, PNG, JPEG, JPG, GIF; 小于等于10MB)
+      pt_BR: Image URL (BMP, PNG, JPEG, JPG, GIF; <=10MB)
+    human_description:
+      en_US: URL of the image (BMP, PNG, JPEG, JPG, GIF; <=10MB) to upload as permanent material.
+      zh_Hans: 要作为永久素材上传的图片URL（支持BMP、PNG、JPEG、JPG、GIF格式，小于等于10MB）。
+      pt_BR: URL of the image (BMP, PNG, JPEG, JPG, GIF; <=10MB) to upload as permanent material.
+    llm_description: URL of the image file (BMP, PNG, JPEG, JPG, GIF; <=10MB) to be uploaded to WeChat as permanent image material (type=image).
+    form: llm
+extra:
+  python:
+    source: tools/upload_permanent_media.py

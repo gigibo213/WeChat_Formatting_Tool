@@ -1,0 +1,839 @@
+app:
+  description: 辅助微信公众号文字排版
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 微信公众号排版工具
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/deepseek:0.0.5@fd6efd37c2a931911de8ab9ca3ba2da303bef146d45ee87ad896b04b36d09403
+- current_identifier: null
+  type: package
+  value:
+    plugin_unique_identifier: xc/easywechat:0.0.1@53b87fde53b5ae104772c449f881ba77e2a1ccab730aa0b70f43d30ece634c47
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: tool
+      id: 1748444773714-source-1748501091970-target
+      source: '1748444773714'
+      sourceHandle: source
+      target: '1748501091970'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1748501091970-source-1748501610726-target
+      source: '1748501091970'
+      sourceHandle: source
+      target: '1748501610726'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: end
+      id: 1748502728636-source-1748444853887-target
+      source: '1748502728636'
+      sourceHandle: source
+      target: '1748444853887'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1748501610726-source-1748541777151-target
+      source: '1748501610726'
+      sourceHandle: source
+      target: '1748541777151'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1748541777151-source-1748542435035-target
+      source: '1748541777151'
+      sourceHandle: source
+      target: '1748542435035'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 1748542435035-source-1748502728636-target
+      source: '1748542435035'
+      sourceHandle: source
+      target: '1748502728636'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: code
+      id: 1748444773714-source-1750705769535-target
+      source: '1748444773714'
+      sourceHandle: source
+      target: '1750705769535'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1750705769535-source-1750706006149-target
+      source: '1750705769535'
+      sourceHandle: source
+      target: '1750706006149'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 1750706006149-source-1748502728636-target
+      source: '1750706006149'
+      sourceHandle: source
+      target: '1748502728636'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: true
+        title: 开始
+        type: start
+        variables:
+        - label: APPID
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: APPID
+        - label: APPSECRET
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: APPSECRET
+        - label: 文章标题
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: title
+        - label: 需要排版的内容
+          max_length: 100000
+          options: []
+          required: true
+          type: paragraph
+          variable: content
+        - label: 作者名字
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: author
+        - label: 摘要
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: digest
+        - label: 排版要求
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: prompt
+      height: 245
+      id: '1748444773714'
+      position:
+        x: 63.463198789092985
+        y: 309.7139541625647
+      positionAbsolute:
+        x: 63.463198789092985
+        y: 309.7139541625647
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1748501610726'
+          - result
+          variable: result
+        selected: false
+        title: 结束
+        type: end
+      height: 89
+      id: '1748444853887'
+      position:
+        x: 2684.0768772741358
+        y: 309.7139541625647
+      positionAbsolute:
+        x: 2684.0768772741358
+        y: 309.7139541625647
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: WeChat official account AppID
+            ja_JP: WeChat official account AppID
+            pt_BR: WeChat official account AppID
+            zh_Hans: 微信公众号AppID
+          label:
+            en_US: WeChat AppID
+            ja_JP: WeChat AppID
+            pt_BR: WeChat AppID
+            zh_Hans: 微信AppID
+          llm_description: WeChat official account AppID, used to identify the application
+          max: null
+          min: null
+          name: appid
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: WeChat official account AppSecret
+            ja_JP: WeChat official account AppSecret
+            pt_BR: WeChat official account AppSecret
+            zh_Hans: 微信公众号AppSecret
+          label:
+            en_US: WeChat AppSecret
+            ja_JP: WeChat AppSecret
+            pt_BR: WeChat AppSecret
+            zh_Hans: 微信AppSecret
+          llm_description: WeChat official account AppSecret, used for authentication
+          max: null
+          min: null
+          name: appsecret
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          appid: ''
+          appsecret: ''
+        provider_id: xc/easywechat/easywechat
+        provider_name: xc/easywechat/easywechat
+        provider_type: builtin
+        selected: false
+        title: 获取微信访问令牌
+        tool_configurations: {}
+        tool_description: 使用appid和appsecret获取微信访问令牌 (无缓存)
+        tool_label: 获取微信访问令牌
+        tool_name: get_access_token
+        tool_parameters:
+          appid:
+            type: mixed
+            value: '{{#1748444773714.APPID#}}'
+          appsecret:
+            type: mixed
+            value: '{{#1748444773714.APPSECRET#}}'
+        type: tool
+      height: 53
+      id: '1748501091970'
+      position:
+        x: 488.4901820433115
+        y: 309.7139541625647
+      positionAbsolute:
+        x: 488.4901820433115
+        y: 309.7139541625647
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        code: "def main(arg1: str) -> dict:\n    # 直接从数组中取第一个元素的 access_token 字段\n\
+          \    access_token = arg1[0][\"access_token\"]\n    \n    return {\n    \
+          \    \"result\": access_token\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 提取access_token
+        type: code
+        variables:
+        - value_selector:
+          - '1748501091970'
+          - json
+          variable: arg1
+      height: 53
+      id: '1748501610726'
+      position:
+        x: 861.485366556568
+        y: 309.7139541625647
+      positionAbsolute:
+        x: 861.485366556568
+        y: 309.7139541625647
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: WeChat access token obtained from get_access_token tool
+            ja_JP: WeChat access token obtained from get_access_token tool
+            pt_BR: WeChat access token obtained from get_access_token tool
+            zh_Hans: 从get_access_token工具获取的微信访问令牌
+          label:
+            en_US: Access Token
+            ja_JP: Access Token
+            pt_BR: Access Token
+            zh_Hans: 访问令牌
+          llm_description: WeChat access token for API authentication
+          max: null
+          min: null
+          name: access_token
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Title of the article draft
+            ja_JP: Title of the article draft
+            pt_BR: Title of the article draft
+            zh_Hans: 文章草稿的标题
+          label:
+            en_US: Article Title
+            ja_JP: Article Title
+            pt_BR: Article Title
+            zh_Hans: 文章标题
+          llm_description: Title of the WeChat article draft
+          max: null
+          min: null
+          name: title
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: HTML content of the article draft
+            ja_JP: HTML content of the article draft
+            pt_BR: HTML content of the article draft
+            zh_Hans: 文章草稿的HTML内容
+          label:
+            en_US: Article Content
+            ja_JP: Article Content
+            pt_BR: Article Content
+            zh_Hans: 文章内容
+          llm_description: HTML content of the WeChat article draft, supports HTML
+            tags
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Author of the article (optional)
+            ja_JP: Author of the article (optional)
+            pt_BR: Author of the article (optional)
+            zh_Hans: 文章作者（可选）
+          label:
+            en_US: Author
+            ja_JP: Author
+            pt_BR: Author
+            zh_Hans: 作者
+          llm_description: Author name of the article draft
+          max: null
+          min: null
+          name: author
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Summary/digest of the article (optional, auto-generated if not
+              provided)
+            ja_JP: Summary/digest of the article (optional, auto-generated if not
+              provided)
+            pt_BR: Summary/digest of the article (optional, auto-generated if not
+              provided)
+            zh_Hans: 文章摘要（可选，如不提供则自动生成）
+          label:
+            en_US: Article Digest
+            ja_JP: Article Digest
+            pt_BR: Article Digest
+            zh_Hans: 文章摘要
+          llm_description: Summary or digest of the article content
+          max: null
+          min: null
+          name: digest
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Media ID of the cover image obtained from upload_permanent_media
+              tool
+            ja_JP: Media ID of the cover image obtained from upload_permanent_media
+              tool
+            pt_BR: Media ID of the cover image obtained from upload_permanent_media
+              tool
+            zh_Hans: 从upload_permanent_media工具获取的封面图片媒体ID
+          label:
+            en_US: Cover Image Media ID
+            ja_JP: Cover Image Media ID
+            pt_BR: Cover Image Media ID
+            zh_Hans: 封面图片媒体ID
+          llm_description: Media ID of the cover image for the article draft
+          max: null
+          min: null
+          name: thumb_media_id
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          access_token: ''
+          author: ''
+          content: ''
+          digest: ''
+          thumb_media_id: ''
+          title: ''
+        provider_id: xc/easywechat/easywechat
+        provider_name: xc/easywechat/easywechat
+        provider_type: builtin
+        selected: false
+        title: 创建微信草稿
+        tool_configurations: {}
+        tool_description: 使用标题、内容、作者、摘要和封面图片创建微信文章草稿
+        tool_label: 创建微信草稿
+        tool_name: create_draft
+        tool_parameters:
+          access_token:
+            type: mixed
+            value: '{{#1748501610726.result#}}'
+          author:
+            type: mixed
+            value: '{{#1748444773714.author#}}'
+          content:
+            type: mixed
+            value: '{{#1748541777151.text#}}'
+          digest:
+            type: mixed
+            value: '{{#1748444773714.digest#}}'
+          thumb_media_id:
+            type: mixed
+            value: '{{#1750706006149.result#}}'
+          title:
+            type: mixed
+            value: '{{#1748444773714.title#}}'
+        type: tool
+      height: 53
+      id: '1748502728636'
+      position:
+        x: 2299.4081480859913
+        y: 309.7139541625647
+      positionAbsolute:
+        x: 2299.4081480859913
+        y: 309.7139541625647
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-chat
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: a919e828-6593-4081-818a-de235a3b9617
+          role: system
+          text: "\n# 角色设定\n\n你是一名专业且富有创意的微信公众号排版工程师，精通微信HTML内容安全策略和移动端适配规范。能够根据用户提供的文章内容与排版要求，尽可能完整且高质量地自动设计出合适的排版风格，并生成符合要求的微信公众号排版HTML代码。在处理过程中，要保证原始输入内容信息的完整性，不得随意缩减内容。\n\
+            \n\n\n## 核心要求\n1. ✅ 基本原则\n不支持任何脚本、表单、动画、嵌入外部资源等交互性内容。\n所有样式必须使用内联 style\
+            \ 属性编写 ，不支持 <style> 或外部 CSS 文件。\n使用标准文档流布局，避免浮动、定位等复杂结构。\n图片推荐使用微信素材库中的链接，确保加载稳定。\n\
+            2. \U0001F9F1 排版规范\n段落结构\n使用 <p> 表示正文段落，<h1> 到 <h6> 表示标题层级。多个段落之间建议添加\
+            \ margin-bottom 间距，提升阅读体验。避免使用 <div> 进行布局，推荐使用 <p> 包裹内容。\n文字强调\n加粗使用 <strong>\
+            \ 或 <b>，斜体使用 <em> 或 <i>，下划线使用 <u>，换行使用 <br>。\n列表展示\n无序列表使用 <ul><li>...</li></ul>，有序列表使用\
+            \ <ol><li>...</li></ol>。\n多媒体插入\n使用微信专属标签：\n音频：<mpvoice>（需配置 voice_id）\n\
+            视频：<mpvideo>（需配置 vid）\n3. \U0001F3A8 样式编写规则（仅限内联）\n字体与颜色\nfont-size: 设置字体大小（推荐\
+            \ px 或 vw）\ncolor: 设置文字颜色\nfont-weight: 控制加粗程度（如 400、700）\nfont-style:\
+            \ 控制斜体\ntext-decoration: 控制下划线、删除线等\n对齐与间距\ntext-align: 控制文本对齐方式（left\
+            \ / center / right）\nmargin: 控制元素上下边距\npadding: 控制内边距（慎用）\nline-height:\
+            \ 控制行高，提升可读性（推荐 1.5~1.8）\nletter-spacing: 控制字间距（适合英文/数字标题）\n背景与边框\nbackground-color:\
+            \ 设置背景色\nborder: 设置边框样式\nborder-radius: 圆角效果\nbox-shadow: 添加阴影效果\n其他视觉属性\n\
+            opacity: 设置透明度\npointer-events: none: 禁用点击事件（用于装饰性元素）\n4. ⚠️ 标签黑名单（禁止使用）\n\
+            以下标签将被微信公众平台过滤或移除：\n<script>, <iframe>, <form>, <input>, <textarea>, <select>,\
+            \ <option>,\n<object>, <embed>, <canvas>, <svg>, <style>, <link>, <meta>,\
+            \ <base>\n5. ❌ 样式属性黑名单（禁止使用）\n以下 CSS 属性将被忽略或移除：\nposition, z-index, float,\
+            \ transform, transition,\nanimation, keyframes, hover伪类, media查询,\n百分比高度/位移值（部分失效），id属性\n\
+            6. ✅ 正确输出示例（Output）\n​<h2 style=\"font-size:22px; color:#2c3e50; text-align:center;\
+            \ margin:1.5em 0;\">\n  IPO市场拥挤，“神仙妖魔”凑热闹。\n</h2>\n\n<p style=\"font-size:16px;\
+            \ color:#333; line-height:1.75; margin-bottom:1em;\">\n  投资家网获悉，近日创投圈传来炸裂消息，创业9年的家装界<strong>“顶流”</strong>、明星公司住范儿陷入停摆、资金链断裂危机。\n\
+            </p>\n\n<p style=\"text-align:center; margin:1.5em 0;\">\n  <img src=\"\
+            https://example.com/image.jpg\"  alt=\"住范儿办公环境\"\n       style=\"max-width:100%;\
+            \ border-radius:8px; box-shadow:0 4px 6px rgba(0,0,0,0.1);\">\n</p>\n\
+            7. ✅ 正确输出效果（Output）\n主标题居中显示，字号较大，颜色深灰；\n正文段落清晰易读，行高适中，段落间留白；\n图片自动适应屏幕宽度，圆角+阴影美化；\n\
+            关键词加粗突出，增强信息层次感；\n整体排版整洁，符合移动端阅读习惯。"
+        - id: 50dde0f8-b8b7-4c49-8b30-03b33e2c2007
+          role: user
+          text: '请排版以下内容
+
+            ===
+
+            {{#1748444773714.content#}}
+
+            ===
+
+            用户要求：
+
+            ===
+
+            {{#1748444773714.prompt#}}
+
+            ==='
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1748541777151'
+      position:
+        x: 1276.6939123841125
+        y: 309.7139541625647
+      positionAbsolute:
+        x: 1276.6939123841125
+        y: 309.7139541625647
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        code: "import re\n\ndef main(args: str) -> dict:\n    raw_input_str = args.strip()\n\
+          \n    # Step 1: Extract the raw HTML string.\n    # First, try to extract\
+          \ from a JSON-like \"html\" field using regex.\n    html_field_pattern =\
+          \ r'\"html\"\\s*:\\s*\"((?:[^\"\\\\]|\\\\.|\\n)*?)\"'\n    html_match =\
+          \ re.search(html_field_pattern, raw_input_str, re.DOTALL)\n\n    source_html_for_section_extraction\
+          \ = \"\"\n    if html_match:\n        html_escaped_from_json = html_match.group(1)\n\
+          \        # Unescape essential characters: \\\" becomes \", \\\\ becomes\
+          \ \\.\n        # Literal \"\\\\n\" sequences from the JSON string are kept\
+          \ as \"\\\\n\" at this stage.\n        # Actual newlines '\\n' within the\
+          \ JSON string value are also preserved.\n        source_html_for_section_extraction\
+          \ = html_escaped_from_json.replace('\\\\\"', '\"').replace('\\\\\\\\', '\\\
+          \\')\n    else:\n        # If the \"html\" field pattern isn't found, assume\
+          \ raw_input_str is the HTML content itself.\n        # This makes the function\
+          \ flexible.\n        source_html_for_section_extraction = raw_input_str\n\
+          \n    # If no content after potential extraction, return empty.\n    if\
+          \ not source_html_for_section_extraction.strip():\n        return {\"html\"\
+          : \"\"}\n\n    # Step 2: Apply the new HTML extraction logic.\n    # Find\
+          \ content between the *first* occurrence of \"<section style...\"\n    #\
+          \ and the *last* occurrence of \"</section>\".\n    # The regex uses a greedy\
+          \ `(.*)` to achieve this.\n    # `re.IGNORECASE` for tag matching, `re.DOTALL`\
+          \ for `.` to match newlines.\n    section_content_pattern = r\"<section\
+          \ style[^>]*>(.*)</section>\"\n    section_match = re.search(section_content_pattern,\
+          \ source_html_for_section_extraction, re.DOTALL | re.IGNORECASE)\n\n   \
+          \ if not section_match:\n        # If the section pattern doesn't match,\
+          \ return empty.\n        return {\"html\": \"\"}\n\n    # This is the content\
+          \ between the outermost section tags matching the criteria.\n    extracted_section_content\
+          \ = section_match.group(1)\n\n    # Step 3: Remove all literal \"\\\\n\"\
+          \ sequences from the extracted content.\n    # This is based on the user's\
+          \ specific instruction: \"用\\\\n匹配，删去所有\\\\n\".\n    # This means if the\
+          \ string contains the two characters '\\' and 'n', they are removed.\n \
+          \   # Actual newline characters ('\\n') are NOT affected by this replacement.\n\
+          \    final_html_output = extracted_section_content.replace(\"\\\\n\", \"\
+          \")\n    final_html_output = final_html_output.replace(\"\\\\\\\"\", \"\"\
+          )\n    final_html_output = final_html_output.replace(\"\\\\\", \"\")\n\n\
+          \    return {\"html\": final_html_output}"
+        code_language: python3
+        desc: ''
+        outputs:
+          html:
+            children: null
+            type: string
+        selected: false
+        title: 提取html内容
+        type: code
+        variables:
+        - value_selector:
+          - '1748541777151'
+          - text
+          variable: args
+      height: 53
+      id: '1748542435035'
+      position:
+        x: 1649.266847476622
+        y: 309.7139541625647
+      positionAbsolute:
+        x: 1649.266847476622
+        y: 309.7139541625647
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        code: "import requests\nimport json\nfrom typing import Dict, Any\n\ndef main(APPID:\
+          \ str, APPSECRET: str) -> Dict[str, Any]:\n    \"\"\"\n    通过 AppID 和 AppSecret\
+          \ 获取第一个图片素材的 media_id。\n\n    该函数包含两个主要步骤：\n    1. 使用 AppID 和 AppSecret\
+          \ 获取 access_token。\n    2. 使用 access_token 获取素材列表（类型=image, 偏移=0, 数量=1）。\n\
+          \n    :param APPID: 公众号的 AppID\n    :param APPSECRET: 公众号的 AppSecret\n \
+          \   :return: 一个包含 API 调用结果的字典。\n             如果成功，'result' 键将包含素材信息的 JSON\
+          \ 对象。\n             如果失败，'result' 键将包含错误信息。\n    \"\"\"\n    access_token\
+          \ = None\n    \n    # 步骤 1: 获取 access_token\n    token_url = \"https://api.weixin.qq.com/cgi-bin/token\"\
+          \n    token_params = {\n        \"grant_type\": \"client_credential\",\n\
+          \        \"appid\": APPID,\n        \"secret\": APPSECRET\n    }\n    try:\n\
+          \        response = requests.get(token_url, params=token_params, timeout=10)\n\
+          \        response.raise_for_status()  # 检查HTTP错误\n        data = response.json()\n\
+          \        if \"access_token\" in data:\n            access_token = data[\"\
+          access_token\"]\n        else:\n            # 如果获取token失败，直接返回错误信息\n   \
+          \         return {'result': data}\n    except requests.exceptions.RequestException\
+          \ as e:\n        return {'result': {'error': 'RequestException', 'message':\
+          \ f\"请求 access_token 时发生网络错误: {e}\"}}\n    except json.JSONDecodeError:\n\
+          \        return {'result': {'error': 'JSONDecodeError', 'message': \"解析\
+          \ access_token 响应时发生JSON错误。\"}}\n\n    # 步骤 2: 如果成功获取 access_token，则获取素材列表\n\
+          \    if access_token:\n        material_api_url = f\"https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token={access_token}\"\
+          \n        payload = {\n            \"type\": \"image\",\n            \"\
+          offset\": 0,\n            \"count\": 1\n        }\n        try:\n      \
+          \      response = requests.post(material_api_url, json=payload, timeout=30)\n\
+          \            response.raise_for_status()\n            material_data = response.json()\n\
+          \            return {'result': material_data}\n        except requests.exceptions.RequestException\
+          \ as e:\n            return {'result': {'error': 'RequestException', 'message':\
+          \ f\"请求素材列表时发生网络错误: {e}\"}}\n        except json.JSONDecodeError:\n    \
+          \        return {'result': {'error': 'JSONDecodeError', 'message': \"解析素材列表响应时发生JSON错误。\"\
+          }}\n\n    # 如果 access_token 未能获取（理论上不会执行到这里，因为前面已经返回）\n    return {'result':\
+          \ {'error': 'UnknownError', 'message': '未能获取 access_token，无法继续。'}}\n\n#\
+          \ --- 使用示例 ---\n# if __name__ == '__main__':\n#     # !!重要!! 请替换为你自己的 AppID\
+          \ 和 AppSecret\n#     MY_APP_ID = \"YOUR_APP_ID\"\n#     MY_APP_SECRET =\
+          \ \"YOUR_APP_SECRET\"\n#\n#     if MY_APP_ID == \"YOUR_APP_ID\" or MY_APP_SECRET\
+          \ == \"YOUR_APP_SECRET\":\n#         print(\"请设置你的 AppID 和 AppSecret\")\n\
+          #     else:\n#         response_data = main(MY_APP_ID, MY_APP_SECRET)\n\
+          #         print(json.dumps(response_data, indent=4, ensure_ascii=False))\n\
+          #\n#         # 如何从返回结果中提取 media_id\n#         if 'result' in response_data\
+          \ and 'item' in response_data['result'] and response_data['result']['item_count']\
+          \ > 0:\n#             media_id = response_data['result']['item'][0].get('media_id')\n\
+          #             print(f\"\\n成功提取到 Media ID: {media_id}\")\n#         else:\n\
+          #             print(\"\\n未能获取到 media_id。请检查上面的返回结果。\")"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: object
+        selected: false
+        title: 获取mediaID
+        type: code
+        variables:
+        - value_selector:
+          - '1748444773714'
+          - APPID
+          variable: APPID
+        - value_selector:
+          - '1748444773714'
+          - APPSECRET
+          variable: APPSECRET
+      height: 53
+      id: '1750705769535'
+      position:
+        x: 1058.114479546322
+        y: 659.8160161773427
+      positionAbsolute:
+        x: 1058.114479546322
+        y: 659.8160161773427
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        code: "import re\nimport json\nfrom typing import Dict, Any\n\ndef main(response_data:\
+          \ Dict[str, Any]) -> dict:\n    \"\"\"\n    使用正则表达式暴力提取 media_id。\n\n  \
+          \  此函数将输入的字典转换为字符串，然后使用正则表达式查找并提取\n    第一个出现的 \"media_id\" 字段的值。\n\n   \
+          \ :param response_data: 包含素材列表信息的输入字典。\n    :return: 一个严格遵循 {'result': <string>}\
+          \ 格式的字典。\n             成功时值为 media_id，失败时值为空字符串。\n    \"\"\"\n    media_id\
+          \ = ''\n\n    try:\n        # 1. 将输入的字典数据转换为一个JSON格式的字符串\n        input_string\
+          \ = json.dumps(response_data, ensure_ascii=False)\n\n        # 2. 定义正则表达式，用于匹配\
+          \ \"media_id\":\"<内容>\" 的模式\n        #    - \"media_id\"\\s*:\\s* 匹配 \"\
+          media_id\" 和它前后的冒号、空格\n        #    - \"([^\"]+)\"          匹配并捕获双引号之间的、不含双引号的任意内容\n\
+          \        pattern = r'\"media_id\"\\s*:\\s*\"([^\"]+)\"'\n\n        # 3.\
+          \ 在字符串中搜索第一个匹配项\n        match = re.search(pattern, input_string)\n\n  \
+          \      # 4. 如果搜索成功 (match对象不为None)，则提取捕获组的内容\n        if match:\n      \
+          \      media_id = match.group(1)\n\n    except Exception:\n        # 如果在转换或匹配过程中出现任何异常，函数将静默失败，\n\
+          \        # 并最终返回默认的空字符串。\n        pass\n\n    # 5. 总是返回平台要求的固定格式\n    return\
+          \ {\n        'result': media_id\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 解析response
+        type: code
+        variables:
+        - value_selector:
+          - '1750705769535'
+          - result
+          variable: response_data
+      height: 53
+      id: '1750706006149'
+      position:
+        x: 1506.9397396946424
+        y: 659.8160161773427
+      positionAbsolute:
+        x: 1506.9397396946424
+        y: 659.8160161773427
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    viewport:
+      x: -494.2376718071531
+      y: -29.045995597503406
+      zoom: 0.666861779100301

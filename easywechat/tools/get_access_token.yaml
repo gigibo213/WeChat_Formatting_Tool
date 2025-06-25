@@ -1,0 +1,43 @@
+identity:
+  name: get_access_token
+  author: xc
+  label:
+    en_US: Get WeChat Access Token
+    zh_Hans: 获取微信访问令牌
+    pt_BR: Get WeChat Access Token
+description:
+  human:
+    en_US: Get WeChat access token using appid and appsecret (no cache)
+    zh_Hans: 使用appid和appsecret获取微信访问令牌 (无缓存)
+    pt_BR: Get WeChat access token using appid and appsecret (no cache)
+  llm: Get WeChat access token using appid and appsecret. Returns the access token that can be used for other WeChat API calls. (This version does not use caching)
+parameters:
+  - name: appid
+    type: string
+    required: true
+    label:
+      en_US: WeChat AppID
+      zh_Hans: 微信AppID
+      pt_BR: WeChat AppID
+    human_description:
+      en_US: WeChat official account AppID
+      zh_Hans: 微信公众号AppID
+      pt_BR: WeChat official account AppID
+    llm_description: WeChat official account AppID, used to identify the application
+    form: llm
+  - name: appsecret
+    type: string
+    required: true
+    label:
+      en_US: WeChat AppSecret
+      zh_Hans: 微信AppSecret
+      pt_BR: WeChat AppSecret
+    human_description:
+      en_US: WeChat official account AppSecret
+      zh_Hans: 微信公众号AppSecret
+      pt_BR: WeChat official account AppSecret
+    llm_description: WeChat official account AppSecret, used for authentication
+    form: llm
+extra:
+  python:
+    source: tools/get_access_token.py

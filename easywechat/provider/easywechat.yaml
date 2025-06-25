@@ -1,0 +1,19 @@
+identity:
+  author: xc
+  name: easywechat
+  label:
+    en_US: EasyWeChat Tools
+    zh_Hans: 微信开发工具
+    pt_BR: EasyWeChat Tools
+  description:
+    en_US: WeChat development tools for access token, permanent media upload, and draft creation
+    zh_Hans: 微信开发工具，包含访问令牌获取、永久素材上传和草稿创建功能
+    pt_BR: WeChat development tools for access token, permanent media upload, and draft creation
+  icon: icon.svg
+tools:
+  - tools/get_access_token.yaml
+  - tools/upload_permanent_media.yaml
+  - tools/create_draft.yaml
+extra:
+  python:
+    source: provider/easywechat.py

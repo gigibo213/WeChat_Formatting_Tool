@@ -1,0 +1,53 @@
+version: 0.0.1
+type: plugin
+author: xc
+name: easywechat
+label:
+  en_US: EasyWeChat Tools
+  ja_JP: EasyWeChat Tools
+  zh_Hans: 微信开发工具
+  pt_BR: EasyWeChat Tools
+description:
+  en_US: WeChat development tools for access token management, permanent media upload, and draft creation
+  ja_JP: WeChat development tools for access token management, permanent media upload, and draft creation
+  zh_Hans: 微信开发工具，提供访问令牌管理、永久素材上传和草稿创建功能
+  pt_BR: WeChat development tools for access token management, permanent media upload, and draft creation
+icon: icon.svg
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+    model:
+      enabled: true
+      llm: true
+      text_embedding: true
+      rerank: true
+      tts: true
+      speech2text: true
+      moderation: true
+    node:
+      enabled: false
+    endpoint:
+      enabled: true
+    app:
+      enabled: true
+    storage:
+      enabled: true
+      size: 1048576
+plugins:
+  tools:
+    - provider/easywechat.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: 1.1.0
+created_at: 2025-05-29T08:19:15.8419815+08:00
+privacy: PRIVACY.md
+verified: false

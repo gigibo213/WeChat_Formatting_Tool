@@ -1,0 +1,95 @@
+identity:
+  name: create_draft
+  author: xc
+  label:
+    en_US: Create WeChat Draft
+    zh_Hans: 创建微信草稿
+    pt_BR: Create WeChat Draft
+description:
+  human:
+    en_US: Create a WeChat article draft with title, content, author, digest, and cover image
+    zh_Hans: 使用标题、内容、作者、摘要和封面图片创建微信文章草稿
+    pt_BR: Create a WeChat article draft with title, content, author, digest, and cover image
+  llm: Create a WeChat article draft. Requires access token, title, content, and cover image media_id. Returns media_id and other information.
+parameters:
+  - name: access_token
+    type: string
+    required: true
+    label:
+      en_US: Access Token
+      zh_Hans: 访问令牌
+      pt_BR: Access Token
+    human_description:
+      en_US: WeChat access token obtained from get_access_token tool
+      zh_Hans: 从get_access_token工具获取的微信访问令牌
+      pt_BR: WeChat access token obtained from get_access_token tool
+    llm_description: WeChat access token for API authentication
+    form: llm
+  - name: title
+    type: string
+    required: true
+    label:
+      en_US: Article Title
+      zh_Hans: 文章标题
+      pt_BR: Article Title
+    human_description:
+      en_US: Title of the article draft
+      zh_Hans: 文章草稿的标题
+      pt_BR: Title of the article draft
+    llm_description: Title of the WeChat article draft
+    form: llm
+  - name: content
+    type: string
+    required: true
+    label:
+      en_US: Article Content
+      zh_Hans: 文章内容
+      pt_BR: Article Content
+    human_description:
+      en_US: HTML content of the article draft
+      zh_Hans: 文章草稿的HTML内容
+      pt_BR: HTML content of the article draft
+    llm_description: HTML content of the WeChat article draft, supports HTML tags
+    form: llm
+  - name: author
+    type: string
+    required: false
+    label:
+      en_US: Author
+      zh_Hans: 作者
+      pt_BR: Author
+    human_description:
+      en_US: Author of the article (optional)
+      zh_Hans: 文章作者（可选）
+      pt_BR: Author of the article (optional)
+    llm_description: Author name of the article draft
+    form: llm
+  - name: digest
+    type: string
+    required: false
+    label:
+      en_US: Article Digest
+      zh_Hans: 文章摘要
+      pt_BR: Article Digest
+    human_description:
+      en_US: Summary/digest of the article (optional, auto-generated if not provided)
+      zh_Hans: 文章摘要（可选，如不提供则自动生成）
+      pt_BR: Summary/digest of the article (optional, auto-generated if not provided)
+    llm_description: Summary or digest of the article content
+    form: llm
+  - name: thumb_media_id
+    type: string
+    required: true
+    label:
+      en_US: Cover Image Media ID
+      zh_Hans: 封面图片媒体ID
+      pt_BR: Cover Image Media ID
+    human_description:
+      en_US: Media ID of the cover image obtained from upload_permanent_media tool
+      zh_Hans: 从upload_permanent_media工具获取的封面图片媒体ID
+      pt_BR: Media ID of the cover image obtained from upload_permanent_media tool
+    llm_description: Media ID of the cover image for the article draft
+    form: llm
+extra:
+  python:
+    source: tools/create_draft.py
