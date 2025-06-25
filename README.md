@@ -65,3 +65,5 @@
 - 请妥善保管您的 `APPID` 和 `APPSecret`，避免泄露给他人。
 - 封面图片大小不宜过大
 - 需要先部署[dify](https://github.com/langgenius/dify)
+
+#### 五、[体验链接](http://120.53.15.242:8901/workflow/KAyxZvLjy7hzCSdw)
